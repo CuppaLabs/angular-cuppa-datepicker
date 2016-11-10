@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="cuppaDatepicker">
+<head>
+ <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="mobile-web-app-capable" content="yes">
+	<title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<link href="css/cuppa-datepicker-styles.css" rel="stylesheet">
+<script type="text/javascript" src="js/lib/moment.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+<script type="text/javascript" src="js/datepicker-directive.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+</head>
+<body ng-controller="cuppaDatepickerController">
+<nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="http://www.cuppalabs.com">Cuppa Labs</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav nav-pills pull-right">
+            <li><a href="http://www.cuppalabs.com/2016/11/cool-javascript-datepicker-for-mobile.html">Back to Tutorial</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav> 
+
+<div class="container col-sm-12 col-md-12 col-lg-6">
+
+      <div class="jumbotron">
+          <img src="images/AngularJS_logo.png" style="width: 250px;"/>
+        <h1 class="component-title">Cuppa DatePicker<span><br>with Angular JS</span></h1>
+        <p>Cool DatePicker for Web and Mobile </p>
+        <!--  <p class="bt-group">
+            <a href="https://github.com/CuppaLabs/javascript-datepicker/archive/master.zip" type="button" class="btn btn-success"><i class="fa fa-download" aria-hidden="true"></i><span class="hidden-xs"> Download </span></a>
+            <a href="https://jsfiddle.net/solomon301/s3hL05s6/" target='_blank' type="button" class="btn btn-success"><i class="fa fa-jsfiddle" aria-hidden="true"></i><span class="hidden-xs">  Fiddle</span></a>
+            <a href="https://github.com/CuppaLabs/javascript-datepicker" target='_blank' type="button" class="btn btn-success"><i class="fa fa-github" aria-hidden="true"></i><span class="hidden-xs">  Github</span></a>
+            <a href="https://github.com/CuppaLabs/javascript-datepicker#documentation" target='_blank' type="button" class="btn btn-success"><i class="fa fa-book" aria-hidden="true"></i><span class="hidden-xs">  Documentation</span></a>
+          </p> -->
+      </div>
+
+    </div>
+	    <div class="container datepicker-container col-sm-6 col-md-6 col-lg-3">
+        <div id="cuppaDatePickerContainer">
+                <cuppa-datepicker ng-model="myDate" big-banner="true" format="DD/MM/YYYY"></cuppa-datepicker>
+        </div>
+		
+		
+    </div>
+	<div class="container datepicker-container col-sm-6 col-md-6 col-lg-3">
+		<div id="cuppaDatePicker">
+                <cuppa-datepicker ng-model="myDate2" big-banner="true" format="DD/MM/YYYY"></cuppa-datepicker>
+        </div>
+    </div>
+  <!--  <div class="ad-section">
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+          style="display:inline-block;width:320px;height:100px"
+          data-ad-client="ca-pub-4525567075133342"
+          data-ad-slot="1008857902"></ins>
+      <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+      </div> -->
+</body>
+</html>
