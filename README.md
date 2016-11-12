@@ -63,12 +63,12 @@ We have font awesome icons and moment.js as dependencies for the component. Don'
 
 Following directive attirbutes can be configured.
 
-|Property|Type|Required|Default|Description|
+|Property|Required|Default|Description|
 |:--- |:--- |:--- |:--- |:--- |
-|`ng-model`|string|YES|`''`| ID of the container in which the datepicker needs to be initialized|
-|`big-banner`|string|Optional|`Today Date`|Date to show on load of the component. If not set todays date will be show as default.|
-|`format`|boolean|optional|`true`|Set to `true` to have a cool banner above the month table. Set false to have a simple datepicker|
-|`default-open`|function/method|optional|`none`|Callback method to call on select of date.|
+|`ng-model`|YES|`''`| ID of the container in which the datepicker needs to be initialized|
+|`big-banner`|Optional|`Today Date`|Date to show on load of the component. If not set todays date will be show as default.|
+|`format`|optional|`true`|Set to `true` to have a cool banner above the month table. Set false to have a simple datepicker|
+|`default-open`|optional|`none`|Callback method to call on select of date.|
 
 
 ## Events
