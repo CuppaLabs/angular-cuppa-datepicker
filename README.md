@@ -27,7 +27,7 @@ Include the CSS file in `<head>` section of your page.
 ```
 
 #### 3. Initialize
-Inject the directive as a dependency into the module where the datepicker needs to be initialized.
+Inject the directive `cuppaDatepickerDirective` as a dependency into the module where the datepicker needs to be initialized.
 
 ```js
 angular.module("cuppaDatepicker",["cuppaDatepickerDirective"])
@@ -70,42 +70,17 @@ Following directive attirbutes can be configured.
 |`format`|boolean|optional|`true`|Set to `true` to have a cool banner above the month table. Set false to have a simple datepicker|
 |`default-open`|function/method|optional|`none`|Callback method to call on select of date.|
 
-## Methods
-- `setDate(String dateString)`
-
-	Sets the date to the value passed as parameter.
-
-	Parameter
-	- dateString: String
-
-	Example : setDate('06-11-2016')
-
-- `today()`
-
-	Sets the date to todays's date.
-
-	Example : today()
-
-- `open()`
-
-	Opens the datepicker popover.
-
-- `close()`
-
-	Closes the datepicker popover.
 
 ## Events
 
-- `onSelect`
+- `on-date-select`
 
 Define a callback method to call on select of the date.
 
 Example : 
 
-```js
-var cal = new WinkelCalendar({
-		onSelect : onDateChange	
-});	
+```html
+  on-date-select="onDateSelect(selectedDate)"
 ```
 
 ## Licence
