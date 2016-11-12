@@ -1,4 +1,5 @@
-# Angular DatePicker ### by Cuppa Labs
+# Angular DatePicker 
+### by [Cuppa Labs](http://www.cuppalabs.com)
 [![npm version](https://img.shields.io/npm/v/bootstrap.svg)](https://www.npmjs.com/package/cuppa-datepicker)
 
 Angular Cuppa Datepicker is a cool responsive Datepicker directive for Web and Mobile. Developed by [Cuppa Labs](http://www.cuppalabs.com).
@@ -14,8 +15,8 @@ View the [Demo here](https://cuppalabs.github.io/angular-cuppa-datepicker/) of D
 - Install with [npm](https://www.npmjs.com): `npm install angular-cuppa-datepicker`
 
 #### 				OR
-#### Steps to Download git repositroy and setup
-#### 1. Add Datepicker Library
+#### Steps to Download and setup
+#### 1. Add Datepicker Directive
 Include the `datepicker-directive.js` script file in the `<head>` section or at the bottom of your html page.
 ```html
 <script src="datepicker-directive.js" type="text/javascript"></script>
