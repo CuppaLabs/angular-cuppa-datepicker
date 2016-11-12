@@ -5,9 +5,10 @@ angular.module("cuppaDatepickerDirective",[])
         replace: true,
         scope:{
             bigBanner:"=",
+            defaultOpen:"=",
             defaultDate:"=ngModel",
             format: "@",
-            onSelect:"&"
+            callback:"&onDateSelect"
         },
         template:`<div class="winkel-calendar">
                     <input type="hidden" class="wc-input" value="{{myDate | date: 'dd/MM/yyyy'}}">
@@ -80,6 +81,12 @@ angular.module("cuppaDatepickerDirective",[])
             scope.today = new Date();
             scope.monthDays = [];
             scope.yearsList = [];
+            if(scope.defaultOpen == true){
+                scope.popover = true;
+            }
+            else{
+                scope.popover = false;
+            }
             scope.generateDays = function(){
                   scope.monthDays = [];
                 var year = scope.myDate.getFullYear(),
@@ -204,6 +211,8 @@ angular.module("cuppaDatepickerDirective",[])
                   var selectedDay = parseInt(evt.target.getAttribute('value'));
                   scope.myDate.setDate(selectedDay);  
                   scope.popover = false;
+                  console.log(scope.myDate);
+                  scope.callback({"selectedDate":scope.myDate});
             }
 
         }

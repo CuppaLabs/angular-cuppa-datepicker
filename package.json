@@ -1,0 +1,29 @@
+{
+  "name": "angular-cuppa-datepicker",
+  "version": "1.0.1",
+  "description": "Angular datepicker directive using angularJS 1. Responsive datepicker for web and mobile.",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [
+    "angular datepicker",
+    "angularjs datepicker",
+    "responsive datepicker"
+  ],
+  "author": "Pradeep Kumar Terli solomon.terli@gmail.com http://www.cuppalabs.com",
+  "dependencies": {
+    "express": "^4.11.0",
+    "moment": "~2.15.2"
+  },
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CuppaLabs/javascript-datepicker.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CuppaLabs/javascript-datepicker/issues"
+  },
+  "homepage": "https://github.com/CuppaLabs/javascript-datepicker#readme"
+}
