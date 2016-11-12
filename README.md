@@ -65,10 +65,10 @@ Following directive attirbutes can be configured.
 
 |Property|Required|Default|Description|
 |:--- |:--- |:--- |:--- |:--- |
-|`ng-model`|YES|`''`| ID of the container in which the datepicker needs to be initialized|
-|`big-banner`|Optional|`Today Date`|Date to show on load of the component. If not set todays date will be show as default.|
-|`format`|optional|`true`|Set to `true` to have a cool banner above the month table. Set false to have a simple datepicker|
-|`default-open`|optional|`none`|Callback method to call on select of date.|
+|`ng-model`|YES|`''`| scope model for the date field.|
+|`big-banner`   |Optional|`true`|Set to true to have a cool banner above the month table. Set false to have a simple datepicker|
+|`format`|optional|`DD/MM/YYYY`|Date format of the calendar. This will be bound to the model as the date's value.|
+|`default-open`|optional|`false`|To open the dateoicker popover on load. Default false.|
 
 
 ## Events
