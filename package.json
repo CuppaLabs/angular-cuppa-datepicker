@@ -1,6 +1,6 @@
 {
   "name": "angular-cuppa-datepicker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Angular datepicker directive using angularJS 1. Responsive datepicker for web and mobile.",
   "scripts": {
     "start": "node app.js"
