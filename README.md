@@ -2,7 +2,7 @@
 ### by [Cuppa Labs](http://www.cuppalabs.com)
 [![npm version](https://img.shields.io/npm/v/angular-cuppa-datepicker.svg)](https://www.npmjs.com/package/angular-cuppa-datepicker)
 
-Angular Cuppa Datepicker is a cool responsive Datepicker directive for Web and Mobile. Developed by [Cuppa Labs](http://www.cuppalabs.com).
+Angular Cuppa Datepicker is a cool responsive Datepicker directive for Web and Mobile. It is Mobile friendly and light weight. Developed by [Cuppa Labs](http://www.cuppalabs.com).
 
 ## Demo
 
