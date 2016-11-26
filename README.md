@@ -51,11 +51,10 @@ Directive tag declaration.
 ```
 #### 5. External Dependencies
 
-We have font awesome icons and moment.js as dependencies for the component. Don't forget to include the following dependencies.
+We have font awesome icons as dependency for the component. Don't forget to include the following dependencies.
 
 ```html
 <script src="https://use.fontawesome.com/698aa4e2c2.js"></script>
-<script src="https://cdn.jsdelivr.net/momentjs/2.15.2/moment.min.js"></script>
 ```
 
 ## API Documentation
