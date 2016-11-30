@@ -13,7 +13,7 @@ body{
     float: left;
     width: 100%;
     height: 30px;
-    border: 1px solid #4285f4;
+    border: 1px solid rgb(230, 23, 62);
     margin-bottom: 1px;
     font-size: 16px;
     padding: 5px;
@@ -23,12 +23,12 @@ body{
     line-height: 20px;
 }
 .wc-date-container > span{
-    color: #4285f4; 
+    color: rgb(230, 23, 62); 
 }
 .wc-date-container > i{
     float: right;
     font-size: 20px;
-    color: #4285f4;
+    color: rgb(230, 23, 62);
 }
 .winkel-calendar{
     position: relative;
@@ -40,7 +40,7 @@ body{
     perspective: 1000px;
     float: left;
     background: #fff;
-    border: 1px solid #4285f4;
+    border: 1px solid rgb(230, 23, 62);
     position: fixed;
     width: calc(100% - 30px);
     top: 15px;
@@ -54,7 +54,7 @@ body{
     float: left;
     width: 100%;
     margin-bottom: 5px;
-    background: #4285f4;
+    background: rgb(230, 23, 62);
 }
 .wc-day-row{
     padding: 10px 0px;
@@ -138,7 +138,7 @@ body{
     color: #fff;
     text-align: center;
     padding: 5px 10px;
-    background: #4285f4;
+    background: rgb(230, 23, 62);
     float: left;
     width: 100%;
     margin-top: 5px;
@@ -166,10 +166,10 @@ body{
 .button{
     width: 100%;
     padding: 5px;
-    background: #4285f4;
+    background: rgb(230, 23, 62);
     color: #fff;
     margin: 0px auto;
-    border: 1px solid #4285f4;
+    border: 1px solid rgb(230, 23, 62);
     border-radius: 3px;
 }
 .button-sm{
@@ -181,7 +181,7 @@ body{
     margin: 0px auto;
     display: inline-block;
     padding: 15px 0px 0px 0px;
-    color: #4285f4;
+    color: rgb(230, 23, 62);
     font-weight: 300;
 }
 .time-view .time-divider{
@@ -237,7 +237,7 @@ body{
     width: 100%;
     padding: 10px 0px 10px;	
     color: #fff;
-    background: #4285f4;
+    background: rgb(230, 23, 62);
 }
 .banner-true > .wc-details{
     padding: 0px 0px 10px;	
@@ -282,7 +282,7 @@ body{
     padding: 15px;
     border-bottom: 1px solid #d1d1d1;
     float: left;
-    color: #4285f4;
+    color: rgb(230, 23, 62);
     font-size: 18px;
     border-top: 1px solid #d1d1d1;
 }
@@ -293,20 +293,20 @@ body{
     width: 50%;
     float: left;
     padding: 10px;
-    color: #4285f4;
+    color: rgb(230, 23, 62);
     font-size: 20px;
 }
 .cal-util > .ok:hover, .cal-util > .cancel:hover{
     box-shadow: inset 0px 0px 20px #ccc;
 }
 .today > span{
-	border: 1px solid #4285f4;
+	border: 1px solid rgb(230, 23, 62);
     background: none;
     border-radius: 50px;
 }
 .selected-day > span{
 	/*background: #3ce5ed;*/
-    background: #4285f4;
+    background: rgb(230, 23, 62);
     color: #fff;
     border-radius: 50px;
 }
@@ -318,7 +318,7 @@ body{
 	cursor: pointer;
 }
 .calendar-days td:hover > span{
-	background: #4285f4;
+	background: rgb(230, 23, 62);
     color: #fff;
     border-radius: 50px;
 }
@@ -384,13 +384,13 @@ body{
     float: right;
 }
 .current-month, .current-year{
-    color: #4285f4;
+    color: rgb(230, 23, 62);
 }
 .years-view > span{
     width: 33.3333%;
 }
 .months-view > span:hover, .years-list-view > span:hover{
-    color: #4285f4;
+    color: rgb(230, 23, 62);
 }
 .banner-true{
     padding-top: 0px !important;
@@ -554,17 +554,17 @@ body{
     display: inline-block;
 }
 .cuppa-btn-group > .active{
-    background: #4285f4 !important;
+    background: rgb(230, 23, 62) !important;
     color: #fff !important;
 }
 .cuppa-btn-group > .button{
-    border: 1px solid #4285f4;
+    border: 1px solid rgb(230, 23, 62);
     background: #fff;
     border-radius: 3px;
     float: left;
     margin: 0px;
     align-items: initial;
-    color: #4285f4;
+    color: rgb(230, 23, 62);
     width: auto;
     padding: 0px 5px;
 }
@@ -619,7 +619,7 @@ body{
       .angular-range-slider div.bar .selection {
         width: 0;
         height: 100%;
-        background: #4285f4; }
+        background: rgb(230, 23, 62); }
     .angular-range-slider div.handle {
       cursor: pointer;
       width: 25px;
