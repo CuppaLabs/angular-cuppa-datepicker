@@ -15,19 +15,15 @@ angular.module("cuppaDatepickerDirective",[])
                     <input type="hidden" class="wc-input" value="{{myDate | date: format}}">
                     <div class="wc-date-container" ng-click="popover = !popover"><span>{{myDate | date: format}}</span><i class="fa fa-calendar"></i></div>
                     <div class="wc-date-popover" ng-class="{'banner-true': bigBanner == true}" ng-show="popover">
-                        <div class="wc-banner" ng-if="bigBanner" ng-class="{'timepicker-true': 'timePicker == true'}">
+                        <div class="wc-banner" ng-if="bigBanner" ng-class="{'timepicker-true': timePicker == true}">
                             <div class="wc-day-row">{{myDate | date: 'EEEE'}}</div>
                             <div class="wc-date-row">{{myDate | date: 'dd'}}</div>
                             <div class="wc-my-sec">
-                                <div class="wc-month-row" >
+                                <div class="wc-month-row">
                                 <div>{{myDate | date: 'MMM'}}</div> 
-                                    <i ng-show="!monthsView" class="fa fa-arrow-down" ng-click="toggleMonthView()"></i>
-                                    <i ng-show="monthsView" class="fa fa-arrow-up" ng-click="toggleMonthView()"></i>
                                 </div>
-                                <div class="wc-year-row">
+                                <div class="wc-year-row"  >
                                 <div>{{myDate | date: 'yyyy'}}</div>
-                                <i ng-show="!yearView" class="fa fa-arrow-down" ng-click="generateYearList()"></i>
-                                <i ng-show="yearView" class="fa fa-arrow-up" ng-click="generateYearList()"></i>
                                 </div>
                             </div>
                             <div class="wc-time-sec" ng-if="timePicker" ng-click="toggleTimeView()">
@@ -51,18 +47,27 @@ angular.module("cuppaDatepickerDirective",[])
                                 </div>
                             </div>
                         </div>
-                        <div class="wc-details">
-                            <i class="wc-prev fa fa-angle-left" ng-click="prevMonth($event)"></i>
-                            <div class="month-year" ng-if="bigBanner">{{myDate | date: 'MMMM'}} {{myDate | date: 'yyyy'}}</div>
-                             <div class="month-year" ng-if="!bigBanner">
-                                <i ng-show="!monthsView" class="fa fa-arrow-down" ng-click="toggleMonthView()"></i>
-                                <i ng-show="monthsView" class="fa fa-arrow-up" ng-click="toggleMonthView()"></i>
-                                &nbsp {{myDate | date: 'MMMM'}} &nbsp {{myDate | date: 'yyyy'}} &nbsp
-                                <i ng-show="!yearView" class="fa fa-arrow-down" ng-click="generateYearList()"></i>
-                                <i ng-show="yearView" class="fa fa-arrow-up" ng-click="generateYearList()"></i>
-                             </div>
-                            <i class="wc-next fa fa-angle-right" ng-click="nextMonth($event)"></i>
-                        </div>
+                         <div class="wc-details">
+                                <i class="wc-prev fa fa-angle-left" ng-click="prevMonth($event)"></i>
+                                <div class="month-year" ng-if="bigBanner" ng-click="toggleMonthView()">{{myDate | date: 'MMMM'}}
+                                <!-- <i ng-show="!monthsView" class="fa fa-arrow-down"></i>
+                                 <i ng-show="monthsView" class="fa fa-arrow-up"></i> -->
+                                </div> 
+                                <div class="month-year" ng-if="!bigBanner" ng-click="toggleMonthView()">
+                                    {{myDate | date: 'MMMM'}} &nbsp 
+                                 <!--    <i ng-show="!monthsView" class="fa fa-arrow-down" ng-click="toggleMonthView()"></i>
+                                    <i ng-show="monthsView" class="fa fa-arrow-up" ng-click="toggleMonthView()"></i>  -->
+                                    
+                                </div>
+                                <i class="wc-next fa fa-angle-right" ng-click="nextMonth($event)"></i>
+                            </div>
+                            <div class="year-title">
+                                <div class="year-dropdown" ng-click="generateYearList()">
+                                    {{myDate | date: 'yyyy'}}
+                                    <i ng-show="!yearView" class="fa fa-angle-down"></i>
+                                    <i ng-show="yearView" class="fa fa-angle-up"></i>
+                                </div>
+                            </div>
                         <table class="calendar-header">
                             <tr>
                                 <td class="calendar-header-day">Su</td>
@@ -349,7 +354,7 @@ angular.module("cuppaDatepickerDirective",[])
                     }
             }
             scope.toggleTimeView = function(){
-                if(scope.timeView == false){
+              //  if(scope.timeView == false){
                 if(scope.myDate.getHours() <= 11 ){
                     scope.hourValue = scope.myDate.getHours();
                     scope.timeViewMeridian = "AM";
@@ -362,7 +367,7 @@ angular.module("cuppaDatepickerDirective",[])
                     scope.hourValue = 12;
                 }
                 scope.minValue = scope.myDate.getMinutes();
-                }
+               // }
                 scope.timeView = !scope.timeView;
             }
             scope.onHourUpdate = function(hour){
