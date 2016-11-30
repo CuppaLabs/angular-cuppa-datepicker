@@ -1,4 +1,4 @@
-# Angular DatePicker 
+# Angular DateTimePicker 
 ### by [Cuppa Labs](http://www.cuppalabs.com)
 [![npm version](https://img.shields.io/npm/v/angular-cuppa-datepicker.svg)](https://www.npmjs.com/package/angular-cuppa-datepicker)
 
