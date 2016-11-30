@@ -27,7 +27,6 @@
 <link href="css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" href="css/main.css">
 <link href="css/cuppa-datepicker-styles.css" rel="stylesheet">
-<script type="text/javascript" src="js/lib/moment.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
 <script type="text/javascript" src="js/datepicker-directive.js"></script>
 <script type="text/javascript" src="js/app.js"></script>
@@ -69,17 +68,23 @@
     </div>
 	    <div class="container datepicker-container col-sm-6 col-md-6 col-lg-3">
         <div id="cuppaDatePickerContainer">
-                <cuppa-datepicker ng-model="myDate" big-banner="true" format="DD/MM/YYYY" default-open="true" on-date-select="onDateSelect(selectedDate)"></cuppa-datepicker>
+                <cuppa-datepicker ng-model="myDate" 
+                                  big-banner="true" 
+                                  format="dd/MM/yyyy hh:mm a" 
+                                  default-open="true" 
+                                  time-picker="true" 
+                                  on-date-select="onDateSelect(selectedDate)">
+                </cuppa-datepicker>
         </div>
 		
 		
     </div>
 	<div class="container datepicker-container col-sm-6 col-md-6 col-lg-3">
 		<div id="cuppaDatePicker">
-                <cuppa-datepicker ng-model="myDate2" big-banner="true" format="DD/MM/YYYY"></cuppa-datepicker>
+                <cuppa-datepicker ng-model="myDate2" big-banner="false" format="dd/MM/yyyy hh:mm a" time-picker="false"></cuppa-datepicker>
         </div>
     </div>
-  <div class="ad-section">
+<!--  <div class="ad-section">
       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       <ins class="adsbygoogle"
           style="display:inline-block;width:320px;height:100px"
@@ -88,6 +93,6 @@
       <script>
       (adsbygoogle = window.adsbygoogle || []).push({});
       </script>
-      </div>
+      </div> -->
 </body>
 </html>

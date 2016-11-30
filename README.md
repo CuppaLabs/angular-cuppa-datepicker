@@ -33,8 +33,8 @@ Inject the directive `cuppaDatepickerDirective` as a dependency into the module 
 ```js
 angular.module("cuppaDatepicker",["cuppaDatepickerDirective"])
 .controller("cuppaDatepickerController",function($scope){
-        $scope.myDate = "2016-6-12";
-        $scope.myDate2 = "1990-04-18";
+        $scope.myDate = new Date();
+        $scope.myDate2 = "04-18-1990 12:15 AM";
 });
 
 ```
@@ -44,8 +44,9 @@ Directive tag declaration.
  <cuppa-datepicker 
  		ng-model="myDate" 
 		big-banner="true" 
-		format="DD/MM/YYYY" 
+		format="dd/MM/yyyy hh:mm a" 
 		default-open="true"
+		time-picker="true" 
 		on-date-select="onDateSelect(selectedDate)">
 </cuppa-datepicker>
 ```
@@ -67,8 +68,9 @@ Following directive attirbutes can be configured.
 |:--- |:--- |:--- |:--- |:--- |
 |`ng-model`|YES|`''`| scope model for the date field.|
 |`big-banner`   |Optional|`true`|Set to true to have a cool banner above the month table. Set false to have a simple datepicker|
-|`format`|optional|`DD/MM/YYYY`|Date format of the calendar. This will be bound to the model as the date's value.|
+|`format`|optional|`dd/MM/yyyy`|Date format of the calendar. This will be bound to the model as the date's value.|
 |`default-open`|optional|`false`|To open the dateoicker popover on load. Default false.|
+|`time=picker`|optional|`false`|Enable timepicker feature.|
 
 
 ## Events
@@ -82,6 +84,49 @@ Example :
 ```html
   on-date-select="onDateSelect(selectedDate)"
 ```
+## Date Formats Support
+
+format string can be composed of the following elements:
+
+- 'yyyy': 4 digit representation of year (e.g. AD 1 => 0001, AD 2010 => 2010)
+- 'yy': 2 digit representation of year, padded (00-99). (e.g. AD 2001 => 01, AD 2010 => 10)
+- 'y': 1 digit representation of year, e.g. (AD 1 => 1, AD 199 => 199)
+- 'MMMM': Month in year (January-December)
+- 'MMM': Month in year (Jan-Dec)
+- 'MM': Month in year, padded (01-12)
+- 'M': Month in year (1-12)
+- 'LLLL': Stand-alone month in year (January-December)
+- 'dd': Day in month, padded (01-31)
+- 'd': Day in month (1-31)
+- 'EEEE': Day in Week,(Sunday-Saturday)
+- 'EEE': Day in Week, (Sun-Sat)
+- 'HH': Hour in day, padded (00-23)
+- 'H': Hour in day (0-23)
+- 'hh': Hour in AM/PM, padded (01-12)
+- 'h': Hour in AM/PM, (1-12)
+- 'mm': Minute in hour, padded (00-59)
+- 'm': Minute in hour (0-59)
+- 'ss': Second in minute, padded (00-59)
+- 's': Second in minute (0-59)
+- 'sss': Millisecond in second, padded (000-999)
+- 'a': AM/PM marker
+- 'Z': 4 digit (+sign) representation of the timezone offset (-1200-+1200)
+- 'ww': Week of year, padded (00-53). Week 01 is the week with the first Thursday of the year
+- 'w': Week of year (0-53). Week 1 is the week with the first Thursday of the year
+- 'G', 'GG', 'GGG': The abbreviated form of the era string (e.g. 'AD')
+- 'GGGG': The long form of the era string (e.g. 'Anno Domini')
+
+format string can also be one of the following predefined localizable formats:
+
+- 'medium': equivalent to 'MMM d, y h:mm:ss a' for en_US locale (e.g. Sep 3, 2010 12:05:08 PM)
+
+- 'short': equivalent to 'M/d/yy h:mm a' for en_US locale (e.g. 9/3/10 12:05 PM)
+- 'fullDate': equivalent to 'EEEE, MMMM d, y' for en_US locale (e.g. Friday, September 3, 2010)
+- 'longDate': equivalent to 'MMMM d, y' for en_US locale (e.g. September 3, 2010)
+- 'mediumDate': equivalent to 'MMM d, y' for en_US locale (e.g. Sep 3, 2010)
+- 'shortDate': equivalent to 'M/d/yy' for en_US locale (e.g. 9/3/10)
+- 'mediumTime': equivalent to 'h:mm:ss a' for en_US locale (e.g. 12:05:08 PM)
+- 'shortTime': equivalent to 'h:mm a' for en_US locale (e.g. 12:05 PM)
 
 ## Licence
 

@@ -84,7 +84,16 @@ body{
     float: left;
 }
 .wc-month-row > div, .wc-year-row > div{
+    
+}
+.wc-month-row > i, .wc-year-row > i{
+    float: left;
+    font-size: 18px;
+    padding: 10px 6px;
     cursor: pointer;
+}
+.wc-month-row > i:hover, .wc-year-row > i:hover{
+    color: rgba(255, 255, 255, 0.63);
 }
 .wc-year-row{
 	text-align: left;
@@ -93,6 +102,12 @@ body{
     float: left;
     width: 100%;
 }
+.timestate > .active{
+    color: #fff;
+}
+.timestate span{
+    cursor:pointer;
+}
 .wc-my-sec{
 	display: inline-block;
 	padding: 10px 10px;
@@ -100,12 +115,99 @@ body{
     width: 50%;
     font-weight: 300;
 }
+.time i{
+    font-size: 21px;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+}
+.time i:hover{
+    color: rgba(255, 255, 255, 0.65);
+}
+.time > .hour, .time > .minutes{
+    float: left;
+    width: 45%;
+}
 .wc-month-row > div:nth-child(1), .wc-year-row > div:nth-child(1){
 	float: left;
     text-align: left;
     line-height: 37px;
+     min-width: 60px;
 }
-
+.wc-time-sec{
+    color: #fff;
+    text-align: center;
+    padding: 5px 10px;
+    background: #4285f4;
+    float: left;
+    width: 100%;
+    margin-top: 5px;
+}
+.wc-time-sec > .time{
+    font-size: 26px;
+    font-weight: 100;
+    width: 50%;
+    text-align: right;
+    float: left;
+}
+.time-divider{
+    width: 5%;
+    float: left;
+    text-align: center;
+    padding: 8px 0px;
+}
+.time-view{
+    position: absolute;
+    background: #fff;
+    width: 100%;
+    z-index: 1;
+    top: 40px;
+}
+.button{
+    width: 100%;
+    padding: 5px;
+    background: #4285f4;
+    color: #fff;
+    margin: 0px auto;
+    border: 1px solid #4285f4;
+    border-radius: 3px;
+}
+.button-sm{
+    width: 50%;
+}
+.time-view .time{
+    font-size: 36px;
+    width: 50%;
+    margin: 0px auto;
+    display: inline-block;
+    padding: 15px 0px 0px 0px;
+    color: #4285f4;
+    font-weight: 300;
+}
+.time-view .time-divider{
+    padding:0px;
+}
+.wc-time-sec .time input, .time-view .time input {
+    display: inline-block;
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: center;   
+    cursor: pointer;
+}
+.wc-time-sec > .timestate{
+    font-size: 14px;
+    width: 50%;
+    float: left;
+    padding: 24px;
+    font-size: 24px;
+}
+.show-time-picker .wc-date-row{
+     width: 33% !important;       
+}
+.show-time-picker .wc-my-sec{
+    width: 22% !important;     
+}
 
 .wc-month-controls > .fa:hover, .wc-year-controls > .fa:hover{
 	color: #fff;
@@ -165,8 +267,37 @@ body{
 }
 .calendar-days{
 	color: #07c;
-    height: 200px;	
     background: #fff;
+}
+.cal-util{
+    width: 100%;
+    float: left;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    background: #fff;
+}
+.cal-util > .ok{
+    width: 100%;
+    padding: 15px;
+    border-bottom: 1px solid #d1d1d1;
+    float: left;
+    color: #4285f4;
+    font-size: 18px;
+    border-top: 1px solid #d1d1d1;
+}
+.ok > i{
+    margin-right: 5px;
+}
+.cal-util > .cancel{
+    width: 50%;
+    float: left;
+    padding: 10px;
+    color: #4285f4;
+    font-size: 20px;
+}
+.cal-util > .ok:hover, .cal-util > .cancel:hover{
+    box-shadow: inset 0px 0px 20px #ccc;
 }
 .today > span{
 	border: 1px solid #4285f4;
@@ -180,7 +311,7 @@ body{
     border-radius: 50px;
 }
 .calendar-header{
-    background: #fff;
+    background: #eee;
 }
 
 .calendar-days td{
@@ -218,7 +349,7 @@ body{
     background: #fff;
     position: absolute;
     width: 100%;
-    top: 210px;
+    top: 55px;
     width: 100%;
     height: calc(100% - 210px);
     bottom: 0;
@@ -268,12 +399,58 @@ body{
 .banner-true > .wc-banner{
     margin-bottom : 0px !important;
 }
+.banner-true > .time-view{
+    height: calc(100% - 124px);
+    top: 125px;
+}
 .methods{
     clear: left;
     padding: 50px 0px;
     text-align: center;
 }
+.month-year i{
+    cursor:pointer;
+    font-size: 10px;
+}
 
+    .timepicker-true .wc-month-row{
+        font-size: 18px;
+    }
+    .timepicker-true .wc-month-row > div:nth-child(1), .wc-year-row > div:nth-child(1){
+        line-height: 24px;
+    }
+    .timepicker-true .wc-month-row > i, .wc-year-row > i{
+        padding: 8px 6px;
+    }
+    .timepicker-true .wc-my-sec{
+        padding: 16px 2px;
+    }
+    .timepicker-true .wc-time-sec{
+        width: 45%;
+        padding: 25px 0px;
+        margin: 0px;
+        cursor: pointer;
+    }
+    .timepicker-true .wc-time-sec:hover{
+        color: rgba(255, 255, 255, 0.65);
+    }
+    .timepicker-true .wc-time-sec > .time{
+        width: 75%;
+        cursor: pointer;
+    }
+    .timepicker-true .time i{
+        display: none;
+    }
+    .timepicker-true .time-divider{
+        padding: 0px;
+    }
+    .timepicker-true .timestate{
+        padding: 0px;
+        width: auto;
+        padding-top: 7px;
+        font-size: 14px;
+        font-weight: 300;
+    }
 @media (min-width: 768px) {
     .wc-date-popover{
         width: 250px;
@@ -289,7 +466,7 @@ body{
     .wc-date-row{
         font-size: 62px;
         line-height: 65px;
-        padding: 5px 5px;
+        padding: 15px 5px;
     }
     .wc-my-sec{
         padding: 5px 10px;
@@ -315,7 +492,7 @@ body{
         padding: 10px 0px 10px;
     }
     .calendar-header td{
-        padding: 10px 0px !important;
+        padding: 5px 0px !important;
     }
     .winkel-calendar table{
         font-size: 14px;
@@ -326,8 +503,142 @@ body{
         height: 35px;
     }
     .months-view, .years-view{
-        top: 134px;
+        top: 40px;
         width: 100%;
-        height: calc(100% - 134px);
+        height: calc(100%);
     }
+    .banner-true .months-view, .banner-true .years-view{
+        top: 128px;
+        height: calc(100% - 128px);
+    }
+    .cal-util > .ok{
+        font-size: 14px;
+        padding: 10px;
+    }
+    .wc-time-sec > .time{
+        font-size: 30px;
+    }
+    .time i{
+        font-size: 10px;
+    }
+    .wc-time-sec > .timestate{
+        font-size: 16px;
+    }
+    .wc-month-row > div:nth-child(1), .wc-year-row > div:nth-child(1){
+        min-width: 35px;
+    }
+    .wc-month-row > i, .wc-year-row > i{
+        font-size: 8px;
+    }
+    .cal-util{
+        position: relative;
+    }
+    .timepicker-true .wc-date-row{
+        width: 30%;
+        font-size: 52px;
+    }
+    .wc-my-sec{
+         width: 25%;
+    }
+
 }
+.time-view h5{
+    text-align: left;
+    max-width: 200px;
+    margin: 0px auto;
+    padding: 5px 0px;
+    font-weight: 400;
+}
+
+.cuppa-btn-group{
+    display: inline-block;
+}
+.cuppa-btn-group > .active{
+    background: #4285f4 !important;
+    color: #fff !important;
+}
+.cuppa-btn-group > .button{
+    border: 1px solid #4285f4;
+    background: #fff;
+    border-radius: 3px;
+    float: left;
+    margin: 0px;
+    align-items: initial;
+    color: #4285f4;
+    width: auto;
+    padding: 0px 5px;
+}
+.cuppa-btn-group > .button:first-child{
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-right: 0px;
+}
+.cuppa-btn-group > .button:last-child{
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+/* Slider CSS*/
+
+.slider{
+    width: 200px;
+    height: 5px;
+    background: #ccc;
+    border-radius: 5px;
+    margin: 12px auto;
+    position: relative;
+} 
+.slider > .circle{
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    position: absolute;
+    top: -8px;
+    border-radius: 20px;
+    left: 60px;
+    box-shadow: 0px 0px 5px #ccc;
+    cursor: pointer;
+}
+
+.angular-range-slider {
+  display: inline-block;
+  position: relative;
+  height: 4px;
+  width: 80%;
+  margin: 10px auto 25px auto;
+  vertical-align: middle; }
+  .angular-range-slider div {
+    white-space: nowrap;
+    position: absolute; }
+    .angular-range-slider div.bar {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      background: #ccc;
+      overflow: hidden; }
+      .angular-range-slider div.bar .selection {
+        width: 0;
+        height: 100%;
+        background: #4285f4; }
+    .angular-range-slider div.handle {
+      cursor: pointer;
+      width: 25px;
+      height: 25px;
+      top: -10px;
+      background: #fff;
+      box-shadow: 0px 0px 5px #ccc;
+      z-index: 2;
+      border-radius: 100%; }
+      .angular-range-slider div.handle.active {
+        background-color: #fff; }
+    .angular-range-slider div.bubble {
+      display: none;
+      cursor: default;
+      top: -32px;
+      padding: 1px 3px 1px 3px;
+      font-size: 0.7em;
+      font-family: sans-serif; }
+      .angular-range-slider div.bubble.active {
+        display: inline-block; }
+      .angular-range-slider div.bubble.limit {
+        color: #777; }
