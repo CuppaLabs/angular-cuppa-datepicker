@@ -123,7 +123,7 @@ angular.module("cuppaDatepickerDirective",[])
                                             highlight="left"
                                             ng-model="minValue"
                                             on-change="onMinUpdate(val)"></div>
-                                <div>
+                                <div class="time-view-btn">
                                     <button class="button button-sm" ng-click="setTimeView()">Set Time</button>
                                 </div>
                         </div>

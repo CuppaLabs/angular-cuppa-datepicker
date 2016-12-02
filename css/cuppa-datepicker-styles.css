@@ -471,6 +471,119 @@ body{
     padding: 13px 10px 7px 0px;
     font-size: 28px;
 }
+.angular-range-slider {
+  display: inline-block;
+  position: relative;
+  height: 4px;
+  width: 80%;
+  margin: 10px auto 25px auto;
+  vertical-align: middle; }
+  .angular-range-slider div {
+    white-space: nowrap;
+    position: absolute; }
+    .angular-range-slider div.bar {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      background: #ccc;
+      overflow: hidden; }
+      .angular-range-slider div.bar .selection {
+        width: 0;
+        height: 100%;
+        background: #4285f4; }
+    .angular-range-slider div.handle {
+      cursor: pointer;
+      width: 25px;
+      height: 25px;
+      top: -10px;
+      background: #fff;
+      box-shadow: 0px 0px 5px #ccc;
+      z-index: 2;
+      border-radius: 100%; }
+      .angular-range-slider div.handle.active {
+        background-color: #fff; }
+    .angular-range-slider div.bubble {
+      display: none;
+      cursor: default;
+      top: -32px;
+      padding: 1px 3px 1px 3px;
+      font-size: 0.7em;
+      font-family: sans-serif; }
+      .angular-range-slider div.bubble.active {
+        display: inline-block; }
+      .angular-range-slider div.bubble.limit {
+        color: #777; }
+
+@media (min-width: 365px) and (max-width: 767px){
+    .wc-date-row{
+        font-size: 96px;
+    }
+    .timepicker-true .wc-date-row {
+        width: 54%;
+        padding: 20px 5px 10px;
+    }
+    .timepicker-true .wc-my-sec {
+        padding: 33px 2px 10px;
+        width: 46%;
+    }
+    .timepicker-true .wc-time-sec {
+        width: 100%;
+        padding: 0px 0px 15px 0px;
+    }
+    .timepicker-true .wc-time-sec > .time {
+        width: 35%;
+        float: none;
+        margin: 0px auto;
+        font-size: 42px;
+    }
+    .timepicker-true .wc-month-row {
+        font-size: 42px;
+        padding: 5px 0px 5px 5px;
+    }
+    .timepicker-true .wc-year-row {
+        font-size: 24px;
+        padding: 15px 0px 0px 5px;
+    }
+    .timepicker-true .timestate{
+        font-size: 22px;
+        font-weight: 100;
+    }
+    .months-view, .years-view{
+        top: 297px;
+    }
+    .banner-true > .time-view{
+        top: 240px;
+    }
+    .time-view .time{
+        font-size: 62px;      
+    }
+    .cuppa-btn-group{
+        font-size: 22px;
+        font-weight: 300;
+    }
+    .angular-range-slider{
+        height: 5px;
+        margin: 20px auto 25px auto;
+    }
+    .angular-range-slider div.handle{
+        width: 45px;
+        height: 45px;
+        top: -20px;
+        font-size: 26px;
+    }
+    .time-view-btn{
+        padding: 25px 0px;
+    }
+    .button-sm {
+        width: 80%;
+        padding: 10px;
+        font-size: 16px;
+    }
+    .cuppa-btn-group > .button{
+        padding: 5px 15px !important;
+    }
+
+}
 @media (min-width: 768px) {
     .wc-date-popover{
         width: 250px;
@@ -590,7 +703,7 @@ body{
 }
 .time-view h5{
     text-align: left;
-    max-width: 200px;
+    width: 80%;
     margin: 0px auto;
     padding: 5px 0px;
     font-weight: 400;
@@ -645,46 +758,3 @@ body{
     box-shadow: 0px 0px 5px #ccc;
     cursor: pointer;
 }
-
-.angular-range-slider {
-  display: inline-block;
-  position: relative;
-  height: 4px;
-  width: 80%;
-  margin: 10px auto 25px auto;
-  vertical-align: middle; }
-  .angular-range-slider div {
-    white-space: nowrap;
-    position: absolute; }
-    .angular-range-slider div.bar {
-      width: 100%;
-      height: 100%;
-      border-radius: 10px;
-      background: #ccc;
-      overflow: hidden; }
-      .angular-range-slider div.bar .selection {
-        width: 0;
-        height: 100%;
-        background: #4285f4; }
-    .angular-range-slider div.handle {
-      cursor: pointer;
-      width: 25px;
-      height: 25px;
-      top: -10px;
-      background: #fff;
-      box-shadow: 0px 0px 5px #ccc;
-      z-index: 2;
-      border-radius: 100%; }
-      .angular-range-slider div.handle.active {
-        background-color: #fff; }
-    .angular-range-slider div.bubble {
-      display: none;
-      cursor: default;
-      top: -32px;
-      padding: 1px 3px 1px 3px;
-      font-size: 0.7em;
-      font-family: sans-serif; }
-      .angular-range-slider div.bubble.active {
-        display: inline-block; }
-      .angular-range-slider div.bubble.limit {
-        color: #777; }
