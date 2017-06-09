@@ -257,7 +257,9 @@ angular.module("cuppaDatepickerDirective",[])
                     }
                     scope.myDate.setMonth(scope.myDate.getMonth() - 1);
                 }
-                 scope.generateDays();
+
+                scope.defaultDate = scope.myDate;
+                scope.generateDays();
             }
             scope.nextMonth = function(e){
                 e.stopPropagation();
@@ -274,6 +276,8 @@ angular.module("cuppaDatepickerDirective",[])
                     scope.myDate.setMonth(scope.myDate.getMonth() + 1);
 
                 }
+
+                scope.defaultDate = scope.myDate;
                 scope.generateDays();
             }
             scope.generateYearList = function(param){
@@ -336,23 +340,23 @@ angular.module("cuppaDatepickerDirective",[])
                 if(type == "increment"){
                     var hours = scope.myDate.getHours() + 1;
                     scope.myDate.setHours(hours);
-                    scope.defaultDate = scope.myDate;
                 }
                 else{
                     scope.myDate.setHours(scope.myDate.getHours() - 1);
-                    scope.defaultDate = scope.myDate;
                 }
+
+                scope.defaultDate = scope.myDate;
             }
             scope.updateMinutes = function(type){
                 if(type == "increment"){
                     var minutes = scope.myDate.getMinutes() + 1;
                     scope.myDate.setMinutes(minutes);
-                    scope.defaultDate = scope.myDate;
                 }
                 else{
                     scope.myDate.setMinutes(scope.myDate.getMinutes() - 1);
-                    scope.defaultDate = scope.myDate;
                 }
+
+                scope.defaultDate = scope.myDate;
             }
             scope.setMeridian = function(type){
                     var hour = scope.myDate.getHours();
@@ -360,13 +364,13 @@ angular.module("cuppaDatepickerDirective",[])
                     if(type == "AM" && hour > 11){
                        var hourstoSet =      hour - 12;
                        scope.myDate.setHours(hourstoSet);
-                       scope.defaultDate = scope.myDate;
                     }
                     if(type == "PM"  && hour <= 11){
                          var hourstoSet =      hour + 12;
                          scope.myDate.setHours(hourstoSet);
-                         scope.defaultDate = scope.myDate;
                     }
+
+                    scope.defaultDate = scope.myDate;
             }
             scope.toggleTimeView = function(){
               //  if(scope.timeView == false){
@@ -400,27 +404,23 @@ angular.module("cuppaDatepickerDirective",[])
                 if(scope.timeViewMeridian == "AM"){
                     if(scope.hourValue == 12){
                         scope.myDate.setHours(0);
-                        scope.defaultDate = scope.myDate;
                     }
                     else{
                         scope.myDate.setHours(scope.hourValue);
-                        scope.defaultDate = scope.myDate;
                     }
                     scope.myDate.setMinutes(scope.minValue);
-                    scope.defaultDate = scope.myDate;
                 }
                 else{
                     if(scope.hourValue == 12){
                         scope.myDate.setHours(scope.hourValue);
-                        scope.defaultDate = scope.myDate;
                     }
                     else{
                         scope.myDate.setHours(scope.hourValue + 12);
-                        scope.defaultDate = scope.myDate;
                     }
                     scope.myDate.setMinutes(scope.minValue);
-                    scope.defaultDate = scope.myDate;
                 }
+
+                scope.defaultDate = scope.myDate;
                 scope.timeView = !scope.timeView;
             }
            $document.on('click',function(e){
