@@ -20,7 +20,7 @@ angular.module("cuppaDatepickerDirective",[])
                             <div class="wc-date-row">{{myDate | date: 'dd'}}</div>
                             <div class="wc-my-sec">
                                 <div class="wc-month-row">
-                                <div>{{myDate | date: 'MMM'}}</div> 
+                                <div>{{myDate | date: 'MMM'}}</div>
                                 </div>
                                 <div class="wc-year-row"  >
                                 <div>{{myDate | date: 'yyyy'}}</div>
@@ -52,12 +52,12 @@ angular.module("cuppaDatepickerDirective",[])
                                 <div class="month-year" ng-if="bigBanner" ng-click="toggleMonthView()">{{myDate | date: 'MMMM'}}
                                 <!-- <i ng-show="!monthsView" class="fa fa-arrow-down"></i>
                                  <i ng-show="monthsView" class="fa fa-arrow-up"></i> -->
-                                </div> 
+                                </div>
                                 <div class="month-year" ng-if="!bigBanner" ng-click="toggleMonthView()">
-                                    {{myDate | date: 'MMMM'}} &nbsp 
+                                    {{myDate | date: 'MMMM'}} &nbsp
                                  <!--    <i ng-show="!monthsView" class="fa fa-arrow-down" ng-click="toggleMonthView()"></i>
                                     <i ng-show="monthsView" class="fa fa-arrow-up" ng-click="toggleMonthView()"></i>  -->
-                                    
+
                                 </div>
                                 <i class="wc-next fa fa-angle-right" ng-click="nextMonth($event)"></i>
                             </div>
@@ -132,7 +132,7 @@ angular.module("cuppaDatepickerDirective",[])
                                 <td class="calendar-day" ng-class="{'today': day == today.getDate() && myDate.getMonth() == today.getMonth() && myDate.getFullYear() == today.getFullYear(),'selected-day': day == myDate.getDate()}" ng-repeat="day in week track by $index">
                                     <span ng-if="day != 0" value="{{day}}">{{day}}</span>
                                 </td>
-                                
+
                             </tr>
                         </table>
                         <div ng-if="!bigBanner">
@@ -144,7 +144,7 @@ angular.module("cuppaDatepickerDirective",[])
                     </div>
                     </div>`,
         link: function(scope, elem, attr){
-            
+
             scope.cal_days_labels = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
             scope.cal_full_days_lables = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
             scope.cal_months_labels = ['January', 'February', 'March', 'April',
@@ -153,8 +153,8 @@ angular.module("cuppaDatepickerDirective",[])
             scope.cal_months_labels_short = ['JAN', 'FEB', 'MAR', 'APR',
                                 'MAY', 'JUN', 'JUL', 'AUG', 'SEP',
                                 'OCT', 'NOV', 'DEC'];
-            
-            scope.cal_days_in_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];       
+
+            scope.cal_days_in_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
             scope.myDate = new Date(scope.defaultDate);
             scope.timeViewDate = new Date(scope.myDate);
@@ -183,6 +183,22 @@ angular.module("cuppaDatepickerDirective",[])
             else{
                 scope.popover = false;
             }
+
+            var unwatchDefaultDate = scope.$watch('defaultDate', function() {
+                scope.myDate = new Date(scope.defaultDate);
+                scope.callback({"selectedDate":scope.myDate});
+            });
+
+            scope.$on('$destroy', function() {
+                try {
+                    unwatchDefaultDate();
+                } catch (e) {
+                    if (! (e instanceof ReferenceError)) {
+                        throw e;
+                    }
+                }
+            });
+
             scope.generateDays = function(){
                   scope.monthDays = [];
                 var year = scope.myDate.getFullYear(),
@@ -199,7 +215,7 @@ angular.module("cuppaDatepickerDirective",[])
                 for (var i = 0; i < 9; i++) {
                     // this loop is for weekdays (cells)
                     dateRow = [];
-                    for (var j = 0; j <= 6; j++) { 
+                    for (var j = 0; j <= 6; j++) {
                         var dateCell = 0;
                     if (day <= monthLength && (i > 0 || j >= startingDay)) {
                         dateCell = day;
@@ -226,7 +242,7 @@ angular.module("cuppaDatepickerDirective",[])
 
             scope.getMonthLength = function(month,year){
                 var monthLength = scope.cal_days_in_month[month];
-                
+
                 // compensate for leap year
                 if (month == 1) { // February only!
                     if((year % 4 == 0 && year % 100 != 0) || year % 400 == 0){
@@ -251,7 +267,9 @@ angular.module("cuppaDatepickerDirective",[])
                     }
                     scope.myDate.setMonth(scope.myDate.getMonth() - 1);
                 }
-                 scope.generateDays();
+
+                scope.defaultDate = scope.myDate;
+                scope.generateDays();
             }
             scope.nextMonth = function(e){
                 e.stopPropagation();
@@ -266,8 +284,10 @@ angular.module("cuppaDatepickerDirective",[])
                         scope.myDate.setDate(nextmonthLength);
                     }
                     scope.myDate.setMonth(scope.myDate.getMonth() + 1);
-                    
+
                 }
+
+                scope.defaultDate = scope.myDate;
                 scope.generateDays();
             }
             scope.generateYearList = function(param){
@@ -292,24 +312,25 @@ angular.module("cuppaDatepickerDirective",[])
                     }
             }
             scope.setYear = function(evt){
-                  console.log( evt.target );
                   var selectedYear = parseInt(evt.target.getAttribute('value'));
                   scope.myDate.setYear(selectedYear);
-                   scope.yearView = !scope.yearView;
+                  scope.defaultDate = scope.myDate;
+                  scope.yearView = !scope.yearView;
             }
             scope.setMonth = function(evt){
                 if(evt.target.getAttribute('value')){
                  var selectedMonth = parseInt(scope.cal_months_labels_short.indexOf(evt.target.getAttribute('value')));
                    scope.myDate.setMonth(selectedMonth);
+                   scope.defaultDate = scope.myDate;
                    scope.monthsView = !scope.monthsView;
                 }
             }
             scope.setDay = function(evt){
                 if(evt.target.getAttribute('value')){
                   var selectedDay = parseInt(evt.target.getAttribute('value'));
-                  scope.myDate.setDate(selectedDay);  
-                 // scope.popover = false;
-                  console.log(scope.myDate);
+                  scope.myDate.setDate(selectedDay);
+                  scope.defaultDate = scope.myDate;
+                  // scope.popover = false;
                   scope.callback({"selectedDate":scope.myDate});
                 }
             }
@@ -331,6 +352,8 @@ angular.module("cuppaDatepickerDirective",[])
                 else{
                     scope.myDate.setHours(scope.myDate.getHours() - 1);
                 }
+
+                scope.defaultDate = scope.myDate;
             }
             scope.updateMinutes = function(type){
                 if(type == "increment"){
@@ -340,6 +363,8 @@ angular.module("cuppaDatepickerDirective",[])
                 else{
                     scope.myDate.setMinutes(scope.myDate.getMinutes() - 1);
                 }
+
+                scope.defaultDate = scope.myDate;
             }
             scope.setMeridian = function(type){
                     var hour = scope.myDate.getHours();
@@ -352,6 +377,8 @@ angular.module("cuppaDatepickerDirective",[])
                          var hourstoSet =      hour + 12;
                          scope.myDate.setHours(hourstoSet);
                     }
+
+                    scope.defaultDate = scope.myDate;
             }
             scope.toggleTimeView = function(){
               //  if(scope.timeView == false){
@@ -400,15 +427,17 @@ angular.module("cuppaDatepickerDirective",[])
                     }
                     scope.myDate.setMinutes(scope.minValue);
                 }
+
+                scope.defaultDate = scope.myDate;
                 scope.timeView = !scope.timeView;
             }
            $document.on('click',function(e){
                 if(!angular.element(elem)[0].contains(e.target)){
-                    scope.popover = false;   
-                    scope.timeView = false; 
+                    scope.popover = false;
+                    scope.timeView = false;
                     scope.monthsView = false;
                     scope.yearView = false;
-                    scope.$apply();  
+                    scope.$apply();
                 }
             });
         }
@@ -529,7 +558,6 @@ angular.module("cuppaDatepickerDirective",[])
           if (currentMode === modes.single) {
             scope.ngModelLow = scope.ngModel;
             scope.onChange({"val":scope.ngModelLow});
-            console.log(scope.ngModelLow);
           }
 
           scope.local[low] = scope[low];
