@@ -184,9 +184,19 @@ angular.module("cuppaDatepickerDirective",[])
                 scope.popover = false;
             }
 
-            scope.$watch('defaultDate', function() {
+            var unwatchDefaultDate = scope.$watch('defaultDate', function() {
                 scope.myDate = new Date(scope.defaultDate);
                 scope.callback({"selectedDate":scope.myDate});
+            });
+
+            scope.$on('$destroy', function() {
+                try {
+                    unwatchDefaultDate();
+                } catch (e) {
+                    if (! (e instanceof ReferenceError)) {
+                        throw e;
+                    }
+                }
             });
 
             scope.generateDays = function(){
@@ -302,7 +312,6 @@ angular.module("cuppaDatepickerDirective",[])
                     }
             }
             scope.setYear = function(evt){
-                  console.log( evt.target );
                   var selectedYear = parseInt(evt.target.getAttribute('value'));
                   scope.myDate.setYear(selectedYear);
                   scope.defaultDate = scope.myDate;
@@ -322,7 +331,6 @@ angular.module("cuppaDatepickerDirective",[])
                   scope.myDate.setDate(selectedDay);
                   scope.defaultDate = scope.myDate;
                   // scope.popover = false;
-                  console.log(scope.myDate);
                   scope.callback({"selectedDate":scope.myDate});
                 }
             }
@@ -550,7 +558,6 @@ angular.module("cuppaDatepickerDirective",[])
           if (currentMode === modes.single) {
             scope.ngModelLow = scope.ngModel;
             scope.onChange({"val":scope.ngModelLow});
-            console.log(scope.ngModelLow);
           }
 
           scope.local[low] = scope[low];
